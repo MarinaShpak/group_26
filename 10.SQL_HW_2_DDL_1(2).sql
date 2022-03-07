@@ -7,7 +7,7 @@ create table employees (
 	employee_name varchar (50) not null
 );
 
---2) Íàïîëíèòü òàáëèöó employee 70 ñòðîêàìè.
+--2) Наполнить таблицу employee 70 строками.
 insert into employees (employee_name)
 values	('@e_belousov'),
 		('@Elena_Parsh'),
@@ -80,15 +80,16 @@ values	('@e_belousov'),
 		('ViacheslavYasynetskyi'),
 		('Valentina');
 		
---3) Ñîçäàòü òàáëèöó salary
+--3) Создать таблицу salary
 --- id. Serial  primary key,
 --- monthly_salary. Int, not null
+
 create table salary_1 (
 	id serial primary key,
 	monthly_salary int not null
 );
 
---4) Íàïîëíèòü òàáëèöó salary 15 ñòðîêàìè:
+--4) Наполнить таблицу salary 15 строками:
 --- 1000
 --- 1100
 --- 1200
@@ -123,7 +124,7 @@ values	(1000),
 		(2400),
 		(2500);
 
---5) Ñîçäàòü òàáëèöó employee_salary
+--5) Создать таблицу employee_salary
 --- id. Serial  primary key,
 --- employee_id. Int, not null, unique
 --- salary_id. Int, not null
@@ -133,8 +134,8 @@ create table employee_salary (
 	salary_id int not null 
 );
 
---6) Íàïîëíèòü òàáëèöó employee_salary 40 ñòðîêàìè:
---- â 10 ñòðîê èç 40 âñòàâèòü íåñóùåñòâóþùèå employee_id
+--6) Наполнить таблицу employee_salary 40 строками:
+--- в 10 строк из 40 вставить несуществующие employee_id
 insert into employee_salary (emploee_id, salary_id)
 values	(3, 7),
 		(1, 4),
@@ -178,7 +179,7 @@ values	(3, 7),
 		(69, 12);
 	
 
---7)  Ñîçäàòü òàáëèöó roles
+--7)  Создать таблицу roles
 --- id. Serial  primary key,
 --- role_name. int, not null, unique
 create table roles_1 (
@@ -186,8 +187,8 @@ create table roles_1 (
 	role_name varchar (30) unique not null
 );
 
---8) Ïîìåíÿòü òèï ñòîëáà role_name ñ int íà varchar(30)
---9) Íàïîëíèòü òàáëèöó roles 20 ñòðîêàìè:
+--8) Поменять тип столба role_name с int на varchar(30)
+--9) Наполнить таблицу roles 20 строками:
 insert into roles_1 ( role_name)
 values	('Junior Python developer'),
 		('Middle Python developer'),
@@ -210,10 +211,10 @@ values	('Junior Python developer'),
 		('Middle Automation QA engineer'),
 		('Senior Automation QA engineer');
 	
---10) Ñîçäàòü òàáëèöó roles_employee
+--10) Создать таблицу roles_employee
 --- id. Serial  primary key,
---- employee_id. Int, not null, unique (âíåøíèé êëþ÷ äëÿ òàáëèöû employees, ïîëå id)
---- role_id. Int, not null (âíåøíèé êëþ÷ äëÿ òàáëèöû roles, ïîëå id)
+--- employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
+--- role_id. Int, not null (внешний ключ для таблицы roles, поле id)
 create table roles_employee_1 (
 	id serial primary key,
 	employee_id int unique not null,
@@ -224,7 +225,7 @@ create table roles_employee_1 (
 		references roles_1 (id)
 );
 
---11)  Íàïîëíèòü òàáëèöó roles_employee 40 ñòðîêàìè:
+--11)  Наполнить таблицу roles_employee 40 строками:
 insert into roles_employee_1 (employee_id, role_id)
 values	(1, 2),
 		(2, 4),
